@@ -1,0 +1,29 @@
+# Generated look-up tables -- regenerate with techsweep_ngspice.py (~3.5 min).
+luts/
+*.pkl
+
+# ngspice / simulation scratch
+*.raw
+*.out
+*.log
+techsweep*.spice
+techsweep*.dat
+techsweep_config.json
+
+# A GIDE checkout cloned alongside this repo for convenience
+GIDE-Universal-Design-Studio/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

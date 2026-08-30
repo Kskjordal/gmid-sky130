@@ -1,0 +1,81 @@
+{
+    "_comment": [
+        "gm/ID LUT sweep configuration for Skywater sky130A + ngspice.",
+        "Consumed by techsweep_ngspice.py; the resulting .pkl files load",
+        "directly in GIDE's Sizing Dashboard (Load NMOS/PMOS Data).",
+        "",
+        "MODEL_FILE 'auto' searches PDK_ROOT and the usual open_pdks /",
+        "volare / ciel install locations. Inside the aicex container this",
+        "resolves to /opt/pdk/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice.",
+        "",
+        "The L_VEC of each device lists ONLY channel lengths that sky130 has",
+        "a real model bin for at W = 5 um. sky130's bins are point-like",
+        "(lmin/lmax span about +/-5 nm around the anchor), so off-bin lengths",
+        "silently reuse a neighbouring bin's fitted parameters. Sticking to",
+        "the binned lengths keeps every LUT entry PDK-accurate."
+    ],
+
+    "pdk": {
+        "MODEL_FILE": "auto",
+        "CORNER": "tt",
+        "TEMP": 27,
+        "PDK_NAME": "SKY130A",
+        "PDK_NODE": "130nm"
+    },
+
+    "sweep": {
+        "W": "5u",
+        "NFING": 1,
+        "VGS_VEC": "0:0.025:1.8",
+        "VDS_VEC": "0:0.025:1.8",
+        "VSB_VEC": "0:0.3:1.8"
+    },
+
+    "devices": [
+        {
+            "name": "nch",
+            "model": "sky130_fd_pr__nfet_01v8",
+            "type": "n",
+            "W": "5u",
+            "NFING": 1,
+            "L_VEC": "0.15u 0.18u 0.25u 0.5u 1u 2u 4u 8u",
+            "output": "SKY130A_130nm_nfet_01v8.pkl"
+        },
+        {
+            "name": "nch_lvt",
+            "model": "sky130_fd_pr__nfet_01v8_lvt",
+            "type": "n",
+            "W": "5u",
+            "NFING": 1,
+            "L_VEC": "0.15u 0.18u 0.25u 0.5u 1u 2u",
+            "output": "SKY130A_130nm_nfet_01v8_lvt.pkl"
+        },
+        {
+            "name": "pch",
+            "model": "sky130_fd_pr__pfet_01v8",
+            "type": "p",
+            "W": "5u",
+            "NFING": 1,
+            "L_VEC": "0.15u 0.18u 0.25u 0.5u 1u 2u 4u 8u",
+            "output": "SKY130A_130nm_pfet_01v8.pkl"
+        },
+        {
+            "name": "pch_lvt",
+            "model": "sky130_fd_pr__pfet_01v8_lvt",
+            "type": "p",
+            "W": "5u",
+            "NFING": 1,
+            "L_VEC": "0.35u 0.5u 1u 1.5u 4u 8u",
+            "output": "SKY130A_130nm_pfet_01v8_lvt.pkl"
+        },
+        {
+            "name": "pch_hvt",
+            "model": "sky130_fd_pr__pfet_01v8_hvt",
+            "type": "p",
+            "W": "5u",
+            "NFING": 1,
+            "L_VEC": "0.15u 0.18u 0.25u 0.5u 1u 2u 4u 8u",
+            "output": "SKY130A_130nm_pfet_01v8_hvt.pkl"
+        }
+    ]
+}
