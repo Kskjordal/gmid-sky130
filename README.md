@@ -31,7 +31,7 @@ and works unchanged.
 ## Quick start
 
 ```sh
-git clone https://github.com/<you>/gmid-sky130.git
+git clone https://github.com/Kskjordal/gmid-sky130.git
 cd gmid-sky130
 
 bash preflight.sh        # do you already have ngspice + sky130A?
